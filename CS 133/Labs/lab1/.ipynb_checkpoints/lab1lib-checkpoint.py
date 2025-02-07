@@ -101,16 +101,5 @@ class HangmanBoard(tk.Tk):
         self.entry.delete(0)
         self.try_guess(guess)
 
-    def try_guess(self, guess):
-        #TODO
-        pass
-
-    def new_game(self, guess):
-        #TODO
-        pass
-
-    def get_word(self):
-        #TODO
-        pass
-    
+#removed try_guess, new_game, and get_word function definitions as they were unecessary
 
