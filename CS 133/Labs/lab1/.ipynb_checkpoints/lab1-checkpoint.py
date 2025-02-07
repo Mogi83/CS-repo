@@ -12,9 +12,11 @@
 #----------------------------------------------------------------------------
 from lab1lib import *
 import random
+import numpy as np
+
 
 class Hangman(HangmanBoard):
-    # TODO: Create a class constructor that initializes all the properties you will need for the game
+    # Done: Create a class constructor that initializes all the properties you will need for the game
     def __init__(self):
         HangmanBoard.__init__(self, "Hangman")
         self.word = ""
@@ -22,6 +24,9 @@ class Hangman(HangmanBoard):
         self.correct = set()
         self.game_over = False
         self.step = 0
+        self.max_steps = 6
+        self.word_list = np.loadtxt("word-list-7-letters.txt", dtype=str)
+        self.new_game()
     # TODO: Implement the HangmanBoard new_game() method by overriding it here
     def new_game(self):
         built_word = ""

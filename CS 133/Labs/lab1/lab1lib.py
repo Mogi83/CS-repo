@@ -1,6 +1,6 @@
 #****************************************************************************
 # lab1lib.py - Lab 1 support files
-# v1.0
+# v1.1
 # Boise State University CS 133
 # Dr. Henderson
 # Spring 2025
@@ -66,29 +66,35 @@ class HangmanBoard(tk.Tk):
         x = self.hang_x - self.headsize // 2
         y = self.hang_y
         self.canvas.create_oval(x, y, x+self.headsize, y+self.headsize)
+        self.canvas.update_idletasks()
 
     def draw_body(self):
         x = self.hang_x
         y = self.hang_y + self.headsize
         self.canvas.create_line(x, y, x, y + self.bodysize)
+        self.canvas.update_idletasks()
 
     def draw_arm(self, is_left = False):
         x = self.hang_x
         y = self.hang_y + self.headsize + self.bodysize // 3
         armlen = -50 if is_left else 50
         self.canvas.create_line(x, y, x + armlen, y)
+        self.canvas.update_idletasks()
 
     def draw_leg(self, is_left = False):
         x = self.hang_x
         y = self.hang_y + self.headsize + self.bodysize
         leglen = -50 if is_left else 50
         self.canvas.create_line(x, y, x + leglen, y + abs(leglen))
+        self.canvas.update_idletasks()
 
     def show_word(self, word):
         self.label_word.configure(text=word)
+        self.canvas.update_idletasks()
 
     def show_guesses(self, guesses):
         self.label_guesses.configure(text=guesses)
+        self.canvas.update_idletasks()
 
     def on_guess(self):
         guess = self.entry.get()
@@ -96,7 +102,7 @@ class HangmanBoard(tk.Tk):
         self.try_guess(guess)
 
     def try_guess(self, guess):
-         
+        #TODO
         pass
 
     def new_game(self, guess):
