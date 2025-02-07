@@ -96,7 +96,7 @@ class HangmanBoard(tk.Tk):
         self.try_guess(guess)
 
     def try_guess(self, guess):
-        #TODO
+         
         pass
 
     def new_game(self, guess):

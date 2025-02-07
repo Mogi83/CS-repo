@@ -14,12 +14,42 @@ from lab1lib import *
 import random
 
 class Hangman(HangmanBoard):
-
     # TODO: Create a class constructor that initializes all the properties you will need for the game
-
+    def __init__(self):
+        HangmanBoard.__init__(self, "Hangman")
+        self.word = ""
+        self.guess = set()
+        self.correct = set()
+        self.game_over = False
+        self.step = 0
     # TODO: Implement the HangmanBoard new_game() method by overriding it here
-        
+    def new_game(self):
+        built_word = ""
+        for letter in self.word:
+            if letter in self.correct:
+                built_word += (letter + ' ')
+            else:
+                built_word += "_ "
+            built_word = build_word[0:14]
+            self.show_word(built_word)
+            self.show_guesses(self.guesses)
+            self.draw_figure()
+            if built_word.find('_') == 1 & (self.step !=):
+
+                def draw_figure(self)
+
+                            
     # TODO: Create a method to show the progress of the game
+                def try_guess(self, letter):
+                    for guess in self.guesses:
+                        if letter == guess:
+                            pass
+                    if self.word.find(letter) == 1:
+                        self.guesses.add(letter)
+                    else:
+                        self.correct.add(letter)
+                    self.show_progress()
+                        
 
     # TODO: Implement the HangmanBoard try_guess() method by overriding it here
 
