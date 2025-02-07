@@ -27,36 +27,74 @@ class Hangman(HangmanBoard):
         self.max_steps = 6
         self.word_list = np.loadtxt("word-list-7-letters.txt", dtype=str)
         self.new_game()
+    
     # TODO: Implement the HangmanBoard new_game() method by overriding it here
     def new_game(self):
-        built_word = ""
-        for letter in self.word:
-            if letter in self.correct:
-                built_word += (letter + ' ')
-            else:
-                built_word += "_ "
-            built_word = build_word[0:14]
-            self.show_word(built_word)
-            self.show_guesses(self.guesses)
-            self.draw_figure()
-            if built_word.find('_') == 1 & (self.step !=):
-
-                def draw_figure(self)
-
+        self.clear()
+        self.word = random.choice(self.word_list).lower()
+        self.guesses.clear()
+        self.correct.clear()
+        self.step = 0
+        self.game_over = False
+        self.show_progress()
                             
     # TODO: Create a method to show the progress of the game
-                def try_guess(self, letter):
-                    for guess in self.guesses:
-                        if letter == guess:
-                            pass
-                    if self.word.find(letter) == 1:
-                        self.guesses.add(letter)
-                    else:
-                        self.correct.add(letter)
-                    self.show_progress()
-                        
+    def show_progress(self):
+        
+        built_word = " ".join([letter if letter in self.correct else "_" for letter in self.word])
+        
+        self.show_word(built_word)
+        
+        self.show_guesses(f"Guesses: {', '.join(sorted(self.guesses))}")
+
+        if "_" not in built_word:
+            self.game_over = True
+            self.show_word(f"You win! The word was '{self.word}'.")
+
+        if self.step >= self.max_steps:
+            self.game_over = True
+            self.show_word(f"Game Over! The word was '{self.word}'.")
+
+    def draw_figure(self):
+        draw_steps = [
+            self.draw_head,
+            self.draw_body,
+            
+            self.draw_arm,  #left
+            
+            self.draw_arm,  #right
+            
+            self.draw_leg,
+            
+            self.draw_leg,
+        ]
+
+        for i in range(self.step):
+            if i == 1 or i == 3:
+                draw_steps[i](i % 2 == 0)
+            elif i == 4 or i == 5:
+                draw_steps[i](i % 2 == 0)
+            else:
+                draw_steps[i]()
+
 
     # TODO: Implement the HangmanBoard try_guess() method by overriding it here
+    def try_guess(self, letter):
+        if letter in self.guesses:
+            return
+
+        self.guess.add(letter)
+
+        if letter in self.word:
+            self.correct.add(letter)
+        else:
+            self.step += 1
+            self.draw_figure()
+
+    self.show_progress()
+                        
+
+
 
 # This code will create a new instance of your Hangman class and call the run() method to start the game
 hm = Hangman()
