@@ -1,0 +1,15 @@
+	employee_id	name	department	salary
+5	106	Leo Johnson	Engineering	75658
+22	123	Mona Johnson	Engineering	90774
+23	124	Ian Miller	Engineering	117563
+30	131	Nina Wong	Engineering	56910
+33	134	Mona Wong	Engineering	104268
+40	141	Grace Lee	Engineering	80080
+41	142	Tina Brown	Engineering	59474
+45	146	Ian Kim	Engineering	101005
+48	149	Eva Johnson	Engineering	76736
+50	151	Eva Miller	Engineering	105680
+56	157	Paul Miller	Engineering	92107
+64	165	Quincy Smith	Engineering	70932
+84	185	Cathy Kim	Engineering	115726
+90	191	Bob Smith	Engineering	77751
